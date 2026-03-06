@@ -25,6 +25,7 @@ import {
   Radar,
 } from "recharts"
 import { TrendingUp, TrendingDown, Target, Clock, Award, Brain, BookOpen, Users, Download, Filter } from "lucide-react"
+import { mockUserProgress } from "@/lib/mock-data"
 
 const weeklyData = [
   { name: "Mon", hours: 2.5, completed: 3 },
@@ -34,14 +35,6 @@ const weeklyData = [
   { name: "Fri", hours: 3.7, completed: 4 },
   { name: "Sat", hours: 2.9, completed: 3 },
   { name: "Sun", hours: 1.5, completed: 1 },
-]
-
-const skillsData = [
-  { name: "JavaScript", value: 85 },
-  { name: "React", value: 78 },
-  { name: "Python", value: 65 },
-  { name: "CSS", value: 82 },
-  { name: "Node.js", value: 58 },
 ]
 
 const progressData = [
@@ -56,6 +49,12 @@ const progressData = [
 const COLORS = ["#131313", "#06b6d4", "#10b981", "#f59e0b", "#ef4444"]
 
 export default function AnalyticsPage() {
+  const user = mockUserProgress
+  const skillsData = user.skills.map((skill) => ({
+    name: skill.name,
+    value: skill.level,
+  }))
+
   return (
     <div className="p-6 space-y-6">
       {/* Header */}
@@ -86,7 +85,7 @@ export default function AnalyticsPage() {
               </div>
               <div>
                 <p className="text-sm font-medium text-muted-foreground">Study Hours</p>
-                <p className="text-2xl font-bold text-foreground">156.5</p>
+                <p className="text-2xl font-bold text-foreground">{user.totalHours}</p>
                 <div className="flex items-center space-x-1 text-xs">
                   <TrendingUp className="w-3 h-3 text-green-600" />
                   <span className="text-green-600">+12% this week</span>
@@ -122,7 +121,7 @@ export default function AnalyticsPage() {
               </div>
               <div>
                 <p className="text-sm font-medium text-muted-foreground">Courses Completed</p>
-                <p className="text-2xl font-bold text-foreground">24</p>
+                <p className="text-2xl font-bold text-foreground">{user.completedCourses}</p>
                 <div className="flex items-center space-x-1 text-xs">
                   <TrendingUp className="w-3 h-3 text-green-600" />
                   <span className="text-green-600">+3 this month</span>
@@ -140,7 +139,7 @@ export default function AnalyticsPage() {
               </div>
               <div>
                 <p className="text-sm font-medium text-muted-foreground">Streak Days</p>
-                <p className="text-2xl font-bold text-foreground">12</p>
+                <p className="text-2xl font-bold text-foreground">{user.currentStreak}</p>
                 <div className="flex items-center space-x-1 text-xs">
                   <TrendingDown className="w-3 h-3 text-red-600" />
                   <span className="text-red-600">-2 from best</span>
