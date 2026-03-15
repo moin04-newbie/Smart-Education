@@ -53,7 +53,7 @@ const cardHoverVariants = {
 
 export default function LandingPage() {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50">
       {/* Header */}
       <motion.header
         initial={{ opacity: 0, y: -20 }}
@@ -62,9 +62,7 @@ export default function LandingPage() {
       >
         <div className="container mx-auto px-6 py-4 flex items-center justify-between">
           <div className="flex items-center space-x-2">
-            <div className="w-8 h-8 bg-gradient-to-br from-gray-900 to-black rounded-lg flex items-center justify-center">
-              <BookOpen className="w-5 h-5 text-white" />
-            </div>
+            <img src="/logo.png" alt="SmartEd Logo" className="w-14 h-14 object-contain mix-blend-multiply" />
             <span className="text-xl font-semibold text-gray-900">SmartEd</span>
           </div>
           <div className="flex items-center space-x-4">
@@ -81,38 +79,78 @@ export default function LandingPage() {
       </motion.header>
 
       {/* Hero Section */}
-      <motion.section initial="hidden" animate="visible" variants={containerVariants} className="py-20 px-6">
-        <div className="container mx-auto text-center max-w-4xl">
-          <motion.div variants={itemVariants}>
-            <Badge variant="secondary" className="mb-6 bg-gray-100 text-gray-800 border-gray-200">
-              🚀 Next-Gen Education Platform
-            </Badge>
-          </motion.div>
-          <motion.h1 variants={itemVariants} className="text-6xl font-bold text-gray-900 mb-6 text-balance">
-            Master Skills. Build Projects. <span className="text-gray-700">Achieve Greatness.</span>
-          </motion.h1>
-          <motion.p variants={itemVariants} className="text-xl text-gray-600 mb-8 text-pretty max-w-3xl mx-auto">
-            Join 50,000+ students using SmartEd's AI-powered platform to accelerate learning, collaborate on real
-            projects, and build portfolio-worthy work.
-          </motion.p>
-          <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/signup">
-              <Button size="lg" className="bg-gray-900 hover:bg-black text-white px-8 py-3">
-                Start Learning Free
-                <ArrowRight className="ml-2 w-4 h-4" />
-              </Button>
-            </Link>
-            <Link href="/login">
-              <Button
-                size="lg"
-                variant="outline"
-                className="border-gray-300 text-gray-700 hover:bg-gray-50 bg-transparent px-8 py-3"
-              >
-                <Play className="mr-2 w-4 h-4" />
-                Watch Demo
-              </Button>
-            </Link>
-          </motion.div>
+      <motion.section initial="hidden" animate="visible" variants={containerVariants} className="py-16 px-6 bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 relative overflow-hidden">
+        {/* Subtle geometric pattern background */}
+        <div className="absolute inset-0 opacity-[0.03]" style={{
+          backgroundImage: `repeating-linear-gradient(45deg, #1e293b 1px, transparent 1px, transparent 10px),
+                           repeating-linear-gradient(-45deg, #1e293b 1px, transparent 1px, transparent 10px)`
+        }}></div>
+
+        <div className="container mx-auto max-w-6xl relative z-10">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            {/* Left side - Content */}
+            <motion.div variants={itemVariants} className="text-left">
+              <Badge variant="outline" className="mb-6 border-indigo-300 text-indigo-700 bg-indigo-50 px-4 py-2 text-sm">
+                🎓 Trusted by students worldwide
+              </Badge>
+              <h1 className="text-6xl font-bold text-gray-900 mb-6 leading-tight">
+                Master Skills.<br />
+                Build Projects.<br />
+                <span className="text-indigo-600">Achieve Greatness.</span>
+              </h1>
+              <p className="text-xl text-gray-600 mb-8 leading-relaxed max-w-lg">
+                Join 50,000+ students using SmartEd to accelerate learning, collaborate on real
+                projects, and build work that matters.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Link href="/signup">
+                  <Button size="lg" className="bg-indigo-600 hover:bg-indigo-700 text-white px-8 py-6 text-lg shadow-lg hover:shadow-xl transition-all hover:-translate-y-0.5">
+                    Start Learning Free
+                    <ArrowRight className="ml-2 w-5 h-5" />
+                  </Button>
+                </Link>
+                <Link href="/login">
+                  <Button
+                    size="lg"
+                    variant="outline"
+                    className="border-2 border-gray-300 text-gray-700 hover:border-indigo-400 hover:text-indigo-600 bg-white px-8 py-6 text-lg"
+                  >
+                    <Play className="mr-2 w-5 h-5" />
+                    Watch Demo
+                  </Button>
+                </Link>
+              </div>
+
+              {/* Social proof */}
+              <div className="mt-10 flex items-center gap-4">
+                <div className="flex -space-x-3">
+                  {[1, 2, 3, 4].map((i) => (
+                    <div key={i} className="w-10 h-10 rounded-full bg-gradient-to-br from-indigo-400 to-purple-400 border-2 border-white flex items-center justify-center text-white text-xs font-bold">
+                      {['A', 'S', 'M', 'J'][i - 1]}
+                    </div>
+                  ))}
+                </div>
+                <div className="text-sm text-gray-600">
+                  <div className="flex items-center gap-1 mb-1">
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
+                    ))}
+                  </div>
+                  <p>Loved by 50,000+ students</p>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Right side - Illustration */}
+            <motion.div variants={itemVariants} className="hidden lg:flex justify-end translate-x-30">
+              <img
+                src="/hm.png"
+                alt="Student studying"
+                className="w-full h-auto object-contain"
+                style={{ maxWidth: '600px', maxHeight: '550px' }}
+              />
+            </motion.div>
+          </div>
         </div>
       </motion.section>
 
@@ -439,9 +477,7 @@ export default function LandingPage() {
       <footer className="py-8 px-6 border-t border-gray-200 bg-white">
         <div className="container mx-auto text-center">
           <div className="flex items-center justify-center space-x-2 mb-4">
-            <div className="w-6 h-6 bg-gradient-to-br from-gray-900 to-black rounded flex items-center justify-center">
-              <BookOpen className="w-4 h-4 text-white" />
-            </div>
+            <img src="/logo.png" alt="SmartEd Logo" className="w-12 h-12 object-contain mix-blend-multiply" />
             <span className="font-semibold text-gray-900">SmartEd</span>
           </div>
           <p className="text-gray-600 text-sm">© 2025 SmartEd. All rights reserved. Empowering students worldwide.</p>
