@@ -36,9 +36,7 @@ export default function LoginPage() {
         {/* Logo */}
         <div className="flex items-center justify-center mb-8">
           <div className="flex items-center space-x-2">
-            <div className="w-10 h-10 bg-gradient-to-br from-gray-900 to-black rounded-lg flex items-center justify-center">
-              <BookOpen className="w-6 h-6 text-white" />
-            </div>
+            <img src="/logo.png" alt="SmartEd Logo" className="w-20 h-20 object-contain mix-blend-multiply" />
             <span className="text-2xl font-semibold text-gray-900">SmartEd</span>
           </div>
         </div>

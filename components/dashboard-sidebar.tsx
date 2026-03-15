@@ -46,9 +46,7 @@ export function DashboardSidebar() {
       {/* Logo */}
       <div className="flex h-16 items-center px-6 border-b border-sidebar-border">
         <div className="flex items-center space-x-2">
-          <div className="w-8 h-8 bg-gradient-to-br from-gray-800 to-gray-900 rounded-lg flex items-center justify-center">
-            <BookOpen className="w-5 h-5 text-white" />
-          </div>
+          <img src="/logo.png" alt="SmartEd Logo" className="w-12 h-12 object-contain mix-blend-multiply" />
           <span className="text-lg font-semibold text-sidebar-foreground">SmartEd</span>
         </div>
       </div>
@@ -81,7 +79,7 @@ export function DashboardSidebar() {
                     "flex items-center px-3 py-2 text-sm font-medium rounded-lg transition-colors",
                     isActive
                       ? /* Updated active state from purple to night black theme */
-                        "bg-gray-100 text-gray-800"
+                      "bg-gray-100 text-gray-800"
                       : "text-sidebar-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground",
                   )}
                 >
@@ -111,7 +109,7 @@ export function DashboardSidebar() {
                       "flex items-center px-3 py-2 text-sm font-medium rounded-lg transition-colors",
                       isActive
                         ? /* Updated active state from purple to night black theme */
-                          "bg-gray-100 text-gray-800"
+                        "bg-gray-100 text-gray-800"
                         : "text-sidebar-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground",
                     )}
                   >
@@ -137,7 +135,7 @@ export function DashboardSidebar() {
                       "flex items-center px-3 py-2 text-sm font-medium rounded-lg transition-colors",
                       isActive
                         ? /* Updated active state from purple to night black theme */
-                          "bg-gray-100 text-gray-800"
+                        "bg-gray-100 text-gray-800"
                         : "text-sidebar-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground",
                     )}
                   >
@@ -165,7 +163,7 @@ export function DashboardSidebar() {
                       "flex items-center px-3 py-2 text-sm font-medium rounded-lg transition-colors",
                       isActive
                         ? /* Updated active state from purple to night black theme */
-                          "bg-gray-100 text-gray-800"
+                        "bg-gray-100 text-gray-800"
                         : "text-sidebar-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground",
                     )}
                   >

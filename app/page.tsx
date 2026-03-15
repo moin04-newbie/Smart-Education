@@ -62,7 +62,7 @@ export default function LandingPage() {
       >
         <div className="container mx-auto px-6 py-4 flex items-center justify-between">
           <div className="flex items-center space-x-2">
-            <img src="/logo.png" alt="SmartEd Logo" className="w-14 h-14 object-contain mix-blend-multiply" />
+            <img src="/logo.png" alt="SmartEd Logo" className="w-20 h-20 object-contain mix-blend-multiply" />
             <span className="text-xl font-semibold text-gray-900">SmartEd</span>
           </div>
           <div className="flex items-center space-x-4">
